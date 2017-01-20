@@ -1,5 +1,18 @@
-<ul class="nav nav-tabs">
-  <li role="presentation" class="active"><a href="#">Home</a></li>
-  <li role="presentation"><a href="#">Profile</a></li>
-  <li role="presentation"><a href="#">Messages</a></li>
-</ul>
+<h1> James' Bih Gaz Board Game Store</h1>
+<% @boardgames.each do |game| %>
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src=<%= game.image %> alt="...">
+      <div class="caption">
+        <h3><%= game.game_name %></h3>
+        <p>Player Minimum: <%= game.player_min %></p>
+        <p>Player Max: <%= game.player_max %></p>
+        <p>Time of Play: <%= game.time %></p>
+        <p>Age Limit: <%= game.age_limit %></p>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
