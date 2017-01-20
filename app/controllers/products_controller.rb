@@ -1,8 +1,7 @@
 class ProductsController < ApplicationController
-  def products
+  def index
     @boardgames = Product.all
-    p @boardgames
-    render 'products.html.erb'
+    render 'index.html.erb'
   end
 
   def newprod
