@@ -4,11 +4,57 @@ class ProductsController < ApplicationController
     render 'index.html.erb'
   end
 
-  def newprod
+def show
+  @game = Product.find_by(id: params[:id])
+end
+  def new
     
   end
 
-  def result
-    @game = Product.create(game_name: params[:input_game_name], player_min: params[:input_player_min], player_max: params[:input_player_max], time: params[:input_time], age_limit: params[:input_age_limit], image: params[:input_image])
+  def edit
+    @game = Product.find_by(id: params[:id])
+    render 'edit.html.erb'
   end
+
+  def update
+    @game = Product.find_by(id: params[:id])
+    @game.assign_attributes(
+      game_name: params[:game_name],
+       player_min: params[:player_min],
+      player_max: params[:player_max],
+         time: params[:time],
+          age_limit: params[:age_limit],
+           image: params[:image]
+           )
+    @game.save
+    render 'update.html.erb'
+
+  end
+
+  def create
+    # @game = Product.new(
+    #   game_name: params[:game_name],
+    #    player_min: params[:player_min],
+    #   player_max: params[:player_max],
+    #      time: params[:time],
+    #       age_limit: params[:age_limit],
+    #        image: params[:image]
+    #        )
+    # @game.save
+    @game = Product.create(
+      game_name: params[:game_name],
+       player_min: params[:player_min],
+      player_max: params[:player_max],
+         time: params[:time],
+          age_limit: params[:age_limit],
+           image: params[:image]
+           )
+  end
+
+  def destroy
+    @game = Product.find_by(id: params[:id])
+    @game.destroy
+    render 'destroy.html.erb'
+  end
+
 end

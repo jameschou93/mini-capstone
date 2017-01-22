@@ -1,0 +1,30 @@
+<%= form_tag "/products/#{@game.id}", method: :patch do %>
+
+<div>
+<label>Game Name<input type="text" name="game_name" value="<%= @game.game_name %>"></label>
+</div>
+
+<div>
+<label>Player Minimum<input type="text" name="player_min" value="<%= @game.player_min %>"></label>
+</div>
+
+<div>
+<label>Player Maximum<input type="text" name="player_max" value="<%= @game.player_max %>"></label>
+</div>
+
+<div>
+<label>Time<input type="text" name="time" value="<%= @game.time %>"></label>
+</div>
+
+<div>
+<label>Age Limit<input type="text" name="age_limit" value="<%= @game.age_limit %>"></label>
+</div>
+
+<div>
+<label>Image Link<input type="text" name="image" value="<%= @game.image %>"></label>
+</div>
+
+<div>
+  <input type="submit" value="update">
+</div>
+  <% end %>

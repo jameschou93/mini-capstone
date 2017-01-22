@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src=<%= @game.image %> alt="...">
+      <div class="caption">
+        <h3><%= @game.game_name %></h3>
+        <p>Player Minimum: <%= @game.player_min %></p>
+        <p>Player Max: <%= @game.player_max %></p>
+        <p>Time of Play: <%= @game.time %></p>
+        <p>Age Limit: <%= @game.age_limit %></p>
+  
+        <%= form_tag "/products/#{@game.id}", method: :delete do%>
+        <input type="submit" value="DELETE">
+        <% end %>
+        <%= form_tag "/products/#{@game.id}", meethod: :patch do %>
+        <input type="submit" value="EDIT">
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
