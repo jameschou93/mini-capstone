@@ -27,7 +27,7 @@ end
            image: params[:image]
            )
     @game.save
-    flash[:success] = "Update Successful"
+    flash[:info] = "Update Successful"
     redirect_to "/products/#{@game.id}"
 
   end
@@ -57,7 +57,7 @@ end
   def destroy
     @game = Product.find_by(id: params[:id])
     @game.delete
-    flash[:success] = "Deleted"
+    flash[:danger] = "Deleted"
     redirect_to "/products"
   end
 
