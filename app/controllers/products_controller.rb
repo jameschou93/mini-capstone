@@ -27,7 +27,8 @@ end
            image: params[:image]
            )
     @game.save
-    render 'update.html.erb'
+    flash[:success] = "Update Successful"
+    redirect_to "/products/#{@game.id}"
 
   end
 
@@ -49,12 +50,15 @@ end
           age_limit: params[:age_limit],
            image: params[:image]
            )
+    flash[:success] = "New Game has been added"
+    redirect_to "/products/#{@game.id}"
   end
 
   def destroy
     @game = Product.find_by(id: params[:id])
-    @game.destroy
-    render 'destroy.html.erb'
+    @game.delete
+    flash[:success] = "Deleted"
+    redirect_to "/products"
   end
 
 end

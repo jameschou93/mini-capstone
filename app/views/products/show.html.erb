@@ -9,13 +9,11 @@
         <p>Time of Play: <%= @game.time %></p>
         <p>Age Limit: <%= @game.age_limit %></p>
   
-        <%= form_tag "/products/#{@game.id}", method: :delete do%>
-        <input type="submit" value="DELETE">
-        <% end %>
-        <%= form_tag "/products/#{@game.id}", meethod: :patch do %>
-        <input type="submit" value="EDIT">
+<button><%= link_to "Delete Dis", "/products/#{@game.id}", method: :delete %></button>
+<button><%= link_to "Edit Dis", "/products/#{@game.id}/edit" %></button>
+      
 
-        <% end %>
+
       </div>
     </div>
   </div>

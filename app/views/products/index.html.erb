@@ -1,3 +1,7 @@
+<head>
+
+  <title>James' Bih Gaz Board Game Store</title>
+</head>
 <h1> James' Bih Gaz Board Game Store</h1>
 
 <div class="row">
@@ -12,9 +16,13 @@
         <p>Player Max: <%= game.player_max %></p>
         <p>Time of Play: <%= game.time %></p>
         <p>Age Limit: <%= game.age_limit %></p>
-        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+        <p><button><%= link_to "DELETE DIS", "/products/#{game.id}", method: :delete %></button>
+          
+          <button><%= link_to "Change Dis", "/products/#{game.id}/edit" %></button>
+        </p>
       </div>
     </div>
   </div>
 </div>
 <% end %>
+</div>    
