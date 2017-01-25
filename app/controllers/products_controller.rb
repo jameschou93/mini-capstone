@@ -24,7 +24,7 @@ end
       player_max: params[:player_max],
          time: params[:time],
           age_limit: params[:age_limit],
-           image: params[:image]
+           image: params[:image], price: params[:price]
            )
     @game.save
     flash[:info] = "Update Successful"
@@ -48,8 +48,8 @@ end
       player_max: params[:player_max],
          time: params[:time],
           age_limit: params[:age_limit],
-           image: params[:image]
-           )
+           image: params[:image], 
+           price: params[:price])
     flash[:success] = "New Game has been added"
     redirect_to "/products/#{@game.id}"
   end

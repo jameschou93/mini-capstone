@@ -4,25 +4,25 @@
 </head>
 <h1> James' Bih Gaz Board Game Store</h1>
 
+<% @boardgames.each_slice(3) do |three_games| %>
 <div class="row">
 <% @boardgames.each do |game| %>
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
+  <div class="col-md-4">
+    <div class= "well">
       <a href="products/<%= game.id %>">
-      <img src=<%= game.image %> alt="..."></a>
-      <div class="caption">
+        <img src=<%= game.image %> alt="..."></a>
         <h3><%= game.game_name %></h3>
         <p>Player Minimum: <%= game.player_min %></p>
         <p>Player Max: <%= game.player_max %></p>
         <p>Time of Play: <%= game.time %></p>
         <p>Age Limit: <%= game.age_limit %></p>
+        <p>Price: <%= game.dollar_price %></p>
         <p><button><%= link_to "DELETE DIS", "/products/#{game.id}", method: :delete %></button>
           
           <button><%= link_to "Change Dis", "/products/#{game.id}/edit" %></button>
         </p>
-      </div>
     </div>
   </div>
+  <% end %>
 </div>
 <% end %>
-</div>    
