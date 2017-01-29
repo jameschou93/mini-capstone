@@ -4,9 +4,9 @@
 </head>
 <h1> James' Bih Gaz Board Game Store</h1>
 
-<% @boardgames.each_slice(3) do |three_games| %>
+
 <div class="row">
-<% @boardgames.each do |game| %>
+<% @games.each do |game| %>
   <div class="col-md-4">
     <div class= "well">
       <a href="products/<%= game.id %>">
@@ -25,4 +25,3 @@
   </div>
   <% end %>
 </div>
-<% end %>

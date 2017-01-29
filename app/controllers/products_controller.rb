@@ -1,12 +1,29 @@
 class ProductsController < ApplicationController
   def index
-    @boardgames = Product.all
+    sort = params[:sort]
+    order = params[:order] || "asc"
+    where = params[:where]
+    search = params[:search]
+
+    if sort
+    @games = Product.order(sort => order)
+    elsif where
+    @games = Product.where(where)
+    elsif search
+    @games = Product.where("game_name LIKE ?", "%#{search}%")
+    else
+    @games = Product.all
+    end
     render 'index.html.erb'
   end
 
-def show
-  @game = Product.find_by(id: params[:id])
-end
+  def show
+    if params[:id] == "random"
+      @game = params[:id] = Product.all.sample
+    else
+    @game = Product.find_by(id: params[:id])
+  end
+  end
   def new
     
   end

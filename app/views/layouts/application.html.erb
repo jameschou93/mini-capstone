@@ -26,11 +26,11 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="/new"> Add Game <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Click for a Handful of nothing</a></li>
+        <li><a href="/products/random">Click for a Handful of nothing</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
+            <li><a href="/products?where=price < 13">Cheap games</a></li>
             <li><a href="#">Another action</a></li>
             <li><a href="#">Something else here</a></li>
             <li role="separator" class="divider"></li>
@@ -40,20 +40,23 @@
           </ul>
         </li>
       </ul>
-      <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
+   
+        <%= form_tag "/products", method: :get do %>
+          <input type="text" name="search" placeholder="Search">
+        <input type="submit" value="search">
+        <% end %>
+    
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Link</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
+            <li><a href="/products?sort=game_name">Sort By Title</a></li>
+            <li><a href="/products?sort=time">Sort By Average Game Duration</a></li>
+            <li><a href="/products?sort=age_limit">Sort By Age Limit</a></li>
+            <li><a href="/products?sort=price&&order=asc">Sort By Price Lowest To Highest</a></li>
+            <li><a href="/products?sort=price&&order=desc">Sort By Price Highest To Lowest</a></li>
+
             <li role="separator" class="divider"></li>
             <li><a href="#">Separated link</a></li>
           </ul>

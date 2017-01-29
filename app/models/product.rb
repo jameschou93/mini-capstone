@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
   def dollar_price
-    "$" + price
+    "$" + price.to_s
   end
 
   def sale_message
