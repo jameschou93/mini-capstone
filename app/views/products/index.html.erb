@@ -10,8 +10,9 @@
   <div class="col-md-4">
     <div class= "well">
       <a href="products/<%= game.id %>">
-        <img src=<%= game.image %> alt="..."></a>
+        <img src=<%= game.images.first.url %> alt="..."></a>
         <h3><%= game.game_name %></h3>
+        <p>Supplier: <%= game.supplier.name %></p>
         <p>Player Minimum: <%= game.player_min %></p>
         <p>Player Max: <%= game.player_max %></p>
         <p>Time of Play: <%= game.time %></p>

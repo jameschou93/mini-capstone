@@ -1,0 +1,12 @@
+<h1><%= @supplier.name %></h1>
+<h2>Products</h2>
+<% @supplier.products.each do |product| %>
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="<%= product.images.first.url %>" alt="...">
+      <%= product.game_name %>
+    </div>
+  </div>
+</div>
+<% end %>

@@ -41,7 +41,7 @@ class ProductsController < ApplicationController
       player_max: params[:player_max],
          time: params[:time],
           age_limit: params[:age_limit],
-           image: params[:image], price: params[:price]
+           image: params[:image], price: params[:price], supplier_id: params[:supplier_id]
            )
     @game.save
     flash[:info] = "Update Successful"
@@ -66,7 +66,7 @@ class ProductsController < ApplicationController
          time: params[:time],
           age_limit: params[:age_limit],
            image: params[:image], 
-           price: params[:price])
+           price: params[:price], supplier_id: params[:supplier_id])
     flash[:success] = "New Game has been added"
     redirect_to "/products/#{@game.id}"
   end

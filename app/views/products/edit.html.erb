@@ -5,6 +5,10 @@
 </div>
 
 <div>
+<label>Supplier_id<input type="text" name="supplier_id" value="<%= @game.supplier.id %>"></label>
+</div>
+
+<div>
 <label>Player Minimum<input type="text" name="player_min" value="<%= @game.player_min %>"></label>
 </div>
 
@@ -24,10 +28,6 @@
 <label>Price<input type="text" name="price" value="<%= @game.price %>"></label>
 </div>
 
-
-<div>
-<label>Image Link<input type="text" name="image" value="<%= @game.image %>"></label>
-</div>
 
 <div>
   <input type="submit" value="update">
