@@ -18,5 +18,11 @@ Rails.application.routes.draw do
 # ImagesController
   get '/images/new', to: 'image#new'
   post '/images', to: 'image#create'
-
+# signup
+  get '/signup', to: 'users#new'
+  post '/users', to: 'users#create'
+# login
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  get '/logout', to: 'sessions#destroy'
 end
