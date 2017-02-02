@@ -28,15 +28,15 @@
         <li class="active"><a href="/new"> Add Game <span class="sr-only">(current)</span></a></li>
         <li><a href="/products/random">Click for a Handful of nothing</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User Settings <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="/products?where=price < 13">Cheap games</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
+          <% if current_user %>
+            <li><%= link_to "Log Out", "/logout" %></li>
+            <% else %>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup">Signup</a></li>
+            <% end %>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
           </ul>
         </li>
       </ul>
@@ -56,7 +56,7 @@
             <li><a href="/products?sort=age_limit">Sort By Age Limit</a></li>
             <li><a href="/products?sort=price&&order=asc">Sort By Price Lowest To Highest</a></li>
             <li><a href="/products?sort=price&&order=desc">Sort By Price Highest To Lowest</a></li>
-
+            <li><a href="/products?where=price < 13">Cheap games</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">Separated link</a></li>
           </ul>

@@ -19,6 +19,16 @@
        <p>Total: <%= @game.total %></p>
         </div>
         <p><%=  @game.sale_message %></p>
+        <%= form_tag "/orders", method: :post do %>
+        <div>
+        Product Id:
+        <input type="number" name="product_id">
+          <input type="text" name="quantity" value="1">
+          <input type="submit" value="BUY NOW">
+        </div>
+
+        <% end %>
+
   
 <button><%= link_to "Delete Dis", "/products/#{@game.id}", method: :delete %></button>
 <button><%= link_to "Edit Dis", "/products/#{@game.id}/edit" %></button>
