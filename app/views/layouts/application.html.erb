@@ -56,6 +56,9 @@
             <li><a href="/products?sort=age_limit">Sort By Age Limit</a></li>
             <li><a href="/products?sort=price&&order=asc">Sort By Price Lowest To Highest</a></li>
             <li><a href="/products?sort=price&&order=desc">Sort By Price Highest To Lowest</a></li>
+            <% Category.all.each do |category| %>
+            <li><a href="/products?category=<%= category.name %>"><%= category.name %> Games</a></li>
+            <% end %>
             <li><a href="/products?where=price < 13">Cheap games</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">Separated link</a></li>

@@ -1,7 +1,37 @@
 <h1>Order</h1>
+<p>
 Order Id:
 <%= @order.id %>
+</p>
+<p>
 Quantity
 <%= @order.quantity %>
+</p>
+<p>
 Product ID:
 <%= @order.product_id %>
+</p>
+<p>
+Subtotal:
+<%= @order.subtotal %>
+</p>
+<p>
+Tax:
+<%= @order.tax %>
+</p>
+<p>
+Total:
+<%= @order.total %>
+</p>
+<p>
+Order Email:
+<%= order.user.email %>
+<p>
+<%= @order.product.game_name %>
+</p>
+<div>
+  <img src="<%= @order.product.images.first.url %>" alt="..."> 
+</div>
+
+Ordered at: 
+<%= @order.created_at.strftime("%A, %b %d") %>

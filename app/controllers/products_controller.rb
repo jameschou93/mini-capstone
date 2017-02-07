@@ -11,6 +11,9 @@ class ProductsController < ApplicationController
     @games = Product.where(where)
     elsif search
     @games = Product.where("game_name LIKE ?", "%#{search}%")
+    elsif params[:category]
+    selected = Category.find_by(name: params[:category])
+    @games = selected.product
     else
     @games = Product.all
     end
