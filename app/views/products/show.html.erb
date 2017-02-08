@@ -29,10 +29,11 @@
           <% end %>
         <% end %>
 
-  
-<button><%= link_to "Delete Dis", "/products/#{@game.id}", method: :delete %></button>
-<button><%= link_to "Edit Dis", "/products/#{@game.id}/edit" %></button>
-<button><%= link_to "Add Image", "/images/new" %></button>
+<% if current_user && current_user.admin %>
+  <button><%= link_to "Delete Dis", "/products/#{@game.id}", method: :delete %></button>
+  <button><%= link_to "Edit Dis", "/products/#{@game.id}/edit" %></button>
+  <button><%= link_to "Add Image", "/images/new" %></button>
+<% end %>
       
 
 

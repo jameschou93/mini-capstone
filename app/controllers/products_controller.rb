@@ -28,15 +28,24 @@ class ProductsController < ApplicationController
   end
   end
   def new
-    
+    unless current_user && current_user.admin
+      redirect_to "/"
+    end
+
   end
 
-  def edit
+  def edit    
+    unless current_user && current_user.admin
+      redirect_to "/"
+    end
     @game = Product.find_by(id: params[:id])
     render 'edit.html.erb'
   end
 
   def update
+    unless current_user && current_user.admin
+      redirect_to "/"
+    end
     @game = Product.find_by(id: params[:id])
     @game.assign_attributes(
       game_name: params[:game_name],
@@ -62,6 +71,9 @@ class ProductsController < ApplicationController
     #        image: params[:image]
     #        )
     # @game.save
+    unless current_user && current_user.admin
+      redirect_to "/"
+    end
     @game = Product.create(
       game_name: params[:game_name],
        player_min: params[:player_min],
@@ -75,6 +87,9 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    unless current_user && current_user.admin
+      redirect_to "/"
+    end
     @game = Product.find_by(id: params[:id])
     @game.delete
     flash[:danger] = "Deleted"
