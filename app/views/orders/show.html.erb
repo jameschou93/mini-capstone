@@ -1,16 +1,22 @@
-<h1>Order</h1>
+<h1>Your Order</h1>
 <p>
 Order Id:
 <%= @order.id %>
 </p>
+<% @order.carted_products.each do |item| %>
+<div class = "well">
 <p>
 Quantity
-<%= @order.quantity %>
+<%= item.quantity  %>
 </p>
 <p>
-Product ID:
-<%= @order.product_id %>
+Product
+<%= item.product.game_name%>
+<br>
+<img src="<%= item.product.images.first.url %>" alt="...">
 </p>
+</div>
+<% end %>
 <p>
 Subtotal:
 <%= @order.subtotal %>
@@ -25,13 +31,9 @@ Total:
 </p>
 <p>
 Order Email:
-<%= order.user.email %>
-<p>
-<%= @order.product.game_name %>
+<%= @order.user.email %>
 </p>
-<div>
-  <img src="<%= @order.product.images.first.url %>" alt="..."> 
-</div>
+
 
 Ordered at: 
 <%= @order.created_at.strftime("%A, %b %d") %>

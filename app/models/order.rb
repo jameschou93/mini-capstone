@@ -4,7 +4,11 @@ class Order < ApplicationRecord
 
 
   def find_subtotal
-    self.subtotal = product.price.to_i  * quantity
+    self.subtotal = 0
+    carted_products.each do |cartedproduct|
+
+      self.subtotal += cartedproduct.product.price.to_i * cartedproduct.quantity
+    end
   end
 
   def find_tax
@@ -19,6 +23,15 @@ class Order < ApplicationRecord
     find_subtotal
     find_tax
     find_total
+    save
+  end
+
+  def confirm_order(input_carted_products)
+    input_carted_products.each do |cartedproduct|
+      cartedproduct.status = "purchased"
+      cartedproduct.order_id = id 
+      cartedproduct.save
+    end
   end
 
 end

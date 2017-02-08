@@ -6,11 +6,12 @@
 <h2> <%= cartedproduct.product.game_name %></h2>
 <%=  cartedproduct.quantity%>
 
-
+<%= link_to "Remove from Cart", "/cart/#{cartedproduct.id}", method: :delete %>
 </div>
-  <% end %>
-<%= form_tag "order", method: :patch do %>
+ 
+ <% end %>
 
-<input type="submit" value="BUY NOW">
+ <%= form_tag "/orders", method: :post do %>
 
-<% end %>
+ <input type="submit" value="BUY NOW">
+ <% end %>

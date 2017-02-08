@@ -2,7 +2,12 @@ class CartedProductsController < ApplicationController
 
 
 def index
-  @cartedproducts = CartedProduct.where(status: "carted")
+  if current_user.carted_products.where(status: "carted") ==[]
+    redirect_to "/"
+  else
+   @cartedproducts = current_user.carted_products.where(status: "carted")
+
+  end
 end
 
 def create
@@ -12,5 +17,9 @@ def create
     redirect_to "/cart"
 end
 
-
+def destroy
+  product = CartedProduct.find_by(id: params[:id])
+  product.update(status: "removed")
+  redirect_to "/cart"
+end
 end
