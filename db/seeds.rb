@@ -51,13 +51,13 @@ Order.create!([
   {user_id: 1, subtotal: "200.0", tax: "18.0", total: "218.0"}
 ])
 Product.create!([
-  {game_name: "Jenga", player_min: "1", player_max: "8", time: "5", age_limit: "1", price: "10.0", description: nil, supplier_id: 2},
-  {game_name: "Hat Fetish", player_min: "2", player_max: "6", time: "20", age_limit: "4", price: "200.0", description: nil, supplier_id: 2},
-  {game_name: "Risk", player_min: "2", player_max: "6", time: "60", age_limit: "10", price: "12.0", description: nil, supplier_id: 1},
-  {game_name: "Catan", player_min: "2", player_max: "4", time: "25", age_limit: "11", price: "2.0", description: nil, supplier_id: 1},
-  {game_name: "Trump the game", player_min: "1", player_max: "1", time: "4 years", age_limit: "80", price: "50.0", description: nil, supplier_id: 1},
-  {game_name: "Munchkins", player_min: "2", player_max: "6", time: "60", age_limit: "12", price: "60.0", description: "Kill Monsters, steal from friends, break friendships", supplier_id: 3},
-  {game_name: "Exploding Kittens", player_min: "2", player_max: "3", time: "15", age_limit: "8", price: "50.0", description: "EXPLODing CATS ALL DAY", supplier_id: 3}
+  {game_name: "Jenga", player_min: "1", player_max: "8", time: "5", age_limit: "1", price: "10.0", supplier_id: 2},
+  {game_name: "Hat Fetish", player_min: "2", player_max: "6", time: "20", age_limit: "4", price: "200.0", supplier_id: 2},
+  {game_name: "Risk", player_min: "2", player_max: "6", time: "60", age_limit: "10", price: "12.0", supplier_id: 1},
+  {game_name: "Catan", player_min: "2", player_max: "4", time: "25", age_limit: "11", price: "2.0", supplier_id: 1},
+  {game_name: "Trump the game", player_min: "1", player_max: "1", time: "4 years", age_limit: "80", price: "50.0", supplier_id: 1},
+  {game_name: "Munchkins", player_min: "2", player_max: "6", time: "60", age_limit: "12", price: "60.0", supplier_id: 3},
+  {game_name: "Exploding Kittens", player_min: "2", player_max: "3", time: "15", age_limit: "8", price: "50.0", supplier_id: 3}
 ])
 ProductCategory.create!([
   {product_id: 4, category_id: 2},
