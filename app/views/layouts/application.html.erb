@@ -25,7 +25,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/new"> Add Game <span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="/products/new"> Add Game <span class="sr-only">(current)</span></a></li>
         <li><a href="/products/random">Click for a Handful of nothing</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User Settings <span class="caret"></span></a>
@@ -47,7 +47,7 @@
         <% end %>
     
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/cart">Checkout</a></li>
+        <li><a href="/cart">Checkout(<%= @count %>)</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">

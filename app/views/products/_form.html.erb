@@ -1,0 +1,58 @@
+<h1><%= header %></h1>
+<% if @game.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@game.errors.count, "error") %> prohibited this article from being saved:</h2>
+    <ul>
+    <% @game.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+<%= form_tag url, method: method_var do %>
+
+<div>
+<label>Game Name<input type="text" name="game_name" value="<%= @game.game_name %>"></label>
+</div>
+
+<div>
+<b>Supplier</b>
+<select name="supplier_id">
+  <% Supplier.all.each do |supplier| %>
+  <option value="<%= supplier.id %>"><%= supplier.name %></option>
+  <% end %>
+</select>
+</div>
+
+<div>
+<label>Player Minimum<input type="text" name="player_min" value="<%= @game.player_min %>"></label>
+</div>
+
+<div>
+<label>Player Maximum<input type="text" name="player_max" value="<%= @game.player_max %>"></label>
+</div>
+
+<div>
+<label>Time<input type="text" name="time" value="<%= @game.time %>"></label>
+</div>
+
+<div>
+<label>Age Limit<input type="text" name="age_limit" value="<%= @game.age_limit %>"></label>
+</div>
+
+<div>
+<label>Price<input type="text" name="price" value="<%= @game.price %>"></label>
+</div>
+
+<div>
+<label>Description<input type="text" name="description" value="<%= @game.description %>"></label>
+</div>
+
+
+
+<div>
+  <input type="submit" value="update">
+</div>
+  <% end %>

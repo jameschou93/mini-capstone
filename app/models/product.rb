@@ -1,10 +1,14 @@
 class Product < ApplicationRecord
-  belongs_to :supplier
+  belongs_to :supplier, optional: true
   has_many :images
   has_many :orders, through: :carted_products
   has_many :carted_products
   has_many :product_categories
   has_many :categories, through: :product_categories
+
+  validates :game_name, :player_min, :description, :price, presence: true
+  validates :game_name, uniqueness: true
+  validates :price, numericality: true
 
   def dollar_price
     "$" + price.to_s

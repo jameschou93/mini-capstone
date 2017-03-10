@@ -1,8 +1,11 @@
 class CartedProduct < ApplicationRecord
   belongs_to :order, optional: true
   belongs_to :user
-  
-belongs_to :product 
+  belongs_to :product 
+
+  validates :user_id, :product_id, :quantity, presence: true
+  validates :quantity, :user_id, :product_id, numericality: {only_integer: true}
+
 
   def find_subtotal
     self.subtotal = product.price.to_i  * quantity

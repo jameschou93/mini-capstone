@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 # ProductsControll
   root to: 'products#index'
   get '/products', to: 'products#index'
-  get '/new', to: 'products#new'
+  get '/products/new', to: 'products#new'
   get '/products/:id/edit', to: 'products#edit'
   patch '/products/:id', to: 'products#update'
   get '/products/:id', to: 'products#show'

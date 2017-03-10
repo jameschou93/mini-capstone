@@ -2,7 +2,6 @@ class Order < ApplicationRecord
   has_many :carted_products
   belongs_to :user
 
-
   def find_subtotal
     self.subtotal = 0
     carted_products.each do |cartedproduct|

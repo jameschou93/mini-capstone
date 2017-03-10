@@ -2,11 +2,15 @@ class CartedProductsController < ApplicationController
 
 
 def index
-  if current_user.carted_products.where(status: "carted") ==[]
+  if current_user
+    if current_user.carted_products.where(status: "carted") ==[]
     redirect_to "/"
-  else
-   @cartedproducts = current_user.carted_products.where(status: "carted")
+    else
+    @cartedproducts = current_user.carted_products.where(status: "carted")
 
+    end
+  else 
+  redirect_to "/"
   end
 end
 
